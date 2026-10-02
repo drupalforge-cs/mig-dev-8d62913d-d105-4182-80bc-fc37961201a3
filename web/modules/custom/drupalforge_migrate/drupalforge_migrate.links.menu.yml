@@ -1,0 +1,5 @@
+drupalforge_migrate.settings:
+  title: 'DrupalForge Migrate'
+  description: 'Configure the connection to DrupalForge and run site backups.'
+  parent: system.admin_config_development
+  route_name: drupalforge_migrate.settings

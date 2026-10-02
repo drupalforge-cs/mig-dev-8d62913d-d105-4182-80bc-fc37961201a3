@@ -1,0 +1,33 @@
+drupalforge_migrate.settings:
+  path: '/admin/config/development/drupalforge-migrate'
+  defaults:
+    _form: '\Drupal\drupalforge_migrate\Form\DrupalForgeMigrateSettingsForm'
+    _title: 'DrupalForge Migrate'
+  requirements:
+    _permission: 'administer drupalforge migrate'
+
+drupalforge_migrate.status:
+  path: '/admin/config/development/drupalforge-migrate/status'
+  defaults:
+    _controller: '\Drupal\drupalforge_migrate\Controller\MigrationStatusController::build'
+    _title: 'DrupalForge Migrate status'
+  requirements:
+    _permission: 'administer drupalforge migrate'
+
+drupalforge_migrate.status.start:
+  path: '/admin/config/development/drupalforge-migrate/status/start'
+  defaults:
+    _controller: '\Drupal\drupalforge_migrate\Controller\MigrationStatusController::start'
+    _title: 'Start DrupalForge backup'
+  requirements:
+    _permission: 'administer drupalforge migrate'
+    _csrf_token: 'TRUE'
+
+drupalforge_migrate.status.resume:
+  path: '/admin/config/development/drupalforge-migrate/status/resume'
+  defaults:
+    _controller: '\Drupal\drupalforge_migrate\Controller\MigrationStatusController::resume'
+    _title: 'Resume DrupalForge backup'
+  requirements:
+    _permission: 'administer drupalforge migrate'
+    _csrf_token: 'TRUE'

@@ -1,0 +1,7 @@
+name: DrupalForge Migrate Test Support
+type: module
+description: 'Fakes the DrupalForge API for drupalforge_migrate functional tests. Not for production use.'
+core_version_requirement: ^10.2 || ^11
+package: Testing
+dependencies:
+  - drupalforge_migrate:drupalforge_migrate

@@ -1,0 +1,16 @@
+{
+  "name": "drupal/drupalforge_migrate",
+  "description": "Preflight, archive, export, and upload a site backup to DrupalForge for DevPanel migration.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "drupal/coder": "*",
+    "drupal/core-dev": "^11.3",
+    "mglaman/phpstan-drupal": "*",
+    "phpspec/prophecy-phpunit": "^2.4",
+    "phpunit/phpunit": "^11.5"
+  }
+}

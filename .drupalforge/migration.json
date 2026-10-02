@@ -1,0 +1,8 @@
+{
+  "migration_id": "8d62913d-d105-4182-80bc-fc37961201a3",
+  "docroot": "web",
+  "drupal_version": "10.6.18",
+  "php_version": "8.2.26",
+  "composer_install": true,
+  "vendor_dir": "vendor"
+}

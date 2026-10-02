@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the DrupalForge Migrate module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupalforge_migrate_help(string $route_name, RouteMatchInterface $route_match): string {
+  if ($route_name === 'help.page.drupalforge_migrate') {
+    return '<p>' . t('Preflight-checks this site, archives its code, exports its database, and uploads both artifacts to DrupalForge so DevPanel can migrate this site.') . '</p>';
+  }
+  return '';
+}

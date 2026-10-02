@@ -1,0 +1,6 @@
+name: DrupalForge Migrate
+type: module
+description: 'Preflight, archive, export, and upload a site backup to DrupalForge for DevPanel migration.'
+core_version_requirement: ^10.2 || ^11
+package: DrupalForge
+configure: drupalforge_migrate.settings

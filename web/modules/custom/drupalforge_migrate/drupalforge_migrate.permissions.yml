@@ -1,0 +1,4 @@
+administer drupalforge migrate:
+  title: 'Administer DrupalForge Migrate'
+  description: 'Configure the connection to DrupalForge and run site backups.'
+  restrict access: true

@@ -1,0 +1,63 @@
+services:
+  logger.channel.drupalforge_migrate:
+    parent: logger.channel_base
+    arguments: ['drupalforge_migrate']
+
+  drupalforge_migrate.shell_runner:
+    class: Drupal\drupalforge_migrate\Service\ShellRunner
+
+  drupalforge_migrate.preflight_service:
+    class: Drupal\drupalforge_migrate\Service\PreflightService
+    arguments:
+      - '@database'
+      - '@file_system'
+      - '@drupalforge_migrate.shell_runner'
+
+  drupalforge_migrate.drupalforge_client:
+    class: Drupal\drupalforge_migrate\Service\DrupalForgeClient
+    arguments:
+      - '@http_client'
+      - '@state'
+      - '@config.factory'
+      - '@logger.channel.drupalforge_migrate'
+
+  drupalforge_migrate.progress_state_store:
+    class: Drupal\drupalforge_migrate\Service\ProgressStateStore
+    arguments:
+      - '@state'
+
+  drupalforge_migrate.code_archiver:
+    class: Drupal\drupalforge_migrate\Service\CodeArchiver
+    arguments:
+      - '@file_system'
+      - '@drupalforge_migrate.shell_runner'
+      - '@logger.channel.drupalforge_migrate'
+
+  drupalforge_migrate.database_exporter:
+    class: Drupal\drupalforge_migrate\Service\DatabaseExporter
+    arguments:
+      - '@database'
+      - '@drupalforge_migrate.shell_runner'
+      - '@drupalforge_migrate.progress_state_store'
+      - '@logger.channel.drupalforge_migrate'
+
+  drupalforge_migrate.uploader:
+    class: Drupal\drupalforge_migrate\Service\Uploader
+    arguments:
+      - '@http_client'
+      - '@drupalforge_migrate.drupalforge_client'
+      - '@drupalforge_migrate.progress_state_store'
+      - '@logger.channel.drupalforge_migrate'
+
+  drupalforge_migrate.backup_orchestrator:
+    class: Drupal\drupalforge_migrate\Service\BackupOrchestrator
+    arguments:
+      - '@drupalforge_migrate.preflight_service'
+      - '@drupalforge_migrate.code_archiver'
+      - '@drupalforge_migrate.database_exporter'
+      - '@drupalforge_migrate.drupalforge_client'
+      - '@drupalforge_migrate.progress_state_store'
+      - '@file_system'
+      - '@logger.channel.drupalforge_migrate'
+      - '@config.factory'
+      - '@drupalforge_migrate.uploader'

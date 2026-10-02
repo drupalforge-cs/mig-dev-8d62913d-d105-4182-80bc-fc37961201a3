@@ -1,0 +1,6 @@
+services:
+  drupalforge_migrate_test_support.drupalforge_client_override:
+    class: Drupal\drupalforge_migrate_test_support\Service\DrupalForgeClientOverride
+    decorates: drupalforge_migrate.drupalforge_client
+    arguments:
+      - '@state'

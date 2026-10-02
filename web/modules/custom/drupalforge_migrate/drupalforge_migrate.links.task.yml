@@ -1,0 +1,9 @@
+drupalforge_migrate.settings_tab:
+  title: 'Settings'
+  route_name: drupalforge_migrate.settings
+  base_route: drupalforge_migrate.settings
+
+drupalforge_migrate.status_tab:
+  title: 'Status'
+  route_name: drupalforge_migrate.status
+  base_route: drupalforge_migrate.settings
